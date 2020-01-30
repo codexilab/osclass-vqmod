@@ -1,0 +1,477 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Promotional packages\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-17 09:54+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: codexilab <admin@codexilab.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.7\n"
+
+msgid "Package"
+msgstr ""
+
+msgid "Packages"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Settings - Packages"
+msgstr ""
+
+msgid "Integration mods - Packages"
+msgstr ""
+
+msgid "Are you sure you want to %s assigned(s)?"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Assign package"
+msgstr ""
+
+msgid "Unassigned"
+msgstr ""
+
+msgid "You cannot activate publications"
+msgstr ""
+
+msgid "Your package is defeated"
+msgstr ""
+
+msgid "You have used all the package that has assigned ¡upgrade!"
+msgstr ""
+
+msgid "The ID of package can be passed as argument with following tag: {PACKAGE_ID}."
+msgstr ""
+
+msgid "Package Information Profile"
+msgstr ""
+
+msgid "Show only upgrade packages"
+msgstr ""
+
+msgid "Show all packages (include free)"
+msgstr ""
+
+msgid "Do not show free packages"
+msgstr ""
+
+msgid "Do not show packages"
+msgstr ""
+
+msgid "Show from user menu"
+msgstr ""
+
+msgid "Use this script for show manually (if you want)"
+msgstr ""
+
+msgid "Go to Integration mods"
+msgstr ""
+
+msgid "Save all changes"
+msgstr ""
+
+msgid "Manage packages"
+msgstr ""
+
+msgid "Default package for users"
+msgstr ""
+
+msgid "Default package for companies"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "User type"
+msgstr ""
+
+msgid "Free listings"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Pay frequency"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Quarterly"
+msgstr ""
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Activate this package"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Update package"
+msgstr ""
+
+msgid "Add new package"
+msgstr ""
+
+msgid "%d Packages"
+msgstr ""
+
+msgid "Show filters"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "No data available in table"
+msgstr ""
+
+msgid "Delete package"
+msgstr ""
+
+msgid "Are you sure you want to delete this package?"
+msgstr ""
+
+msgid "Activate package"
+msgstr ""
+
+msgid "Are you sure you want to activate this package?"
+msgstr ""
+
+msgid "Activate"
+msgstr ""
+
+msgid "Deactivate package"
+msgstr ""
+
+msgid "Are you sure you want to deactivate this package?"
+msgstr ""
+
+msgid "Deactivate"
+msgstr ""
+
+msgid "Set default package"
+msgstr ""
+
+msgid "Are you sure you want to set this package like default?"
+msgstr ""
+
+msgid "Unset default package"
+msgstr ""
+
+msgid "Are you sure you want to unset this package like default?"
+msgstr ""
+
+msgid "Bulk actions"
+msgstr ""
+
+msgid "Choose an option"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "ACTIVE"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "DEACTIVE"
+msgstr ""
+
+msgid "Order by"
+msgstr ""
+
+msgid "DATE"
+msgstr ""
+
+msgid "UPDATE DATE"
+msgstr ""
+
+msgid "Update date"
+msgstr ""
+
+msgid "FREE LISTINGS"
+msgstr ""
+
+msgid "PRICE"
+msgstr ""
+
+msgid "DESC"
+msgstr ""
+
+msgid "ASC"
+msgstr ""
+
+msgid "Apply filters"
+msgstr ""
+
+msgid "Reset filters"
+msgstr ""
+
+msgid "listings"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "From date"
+msgstr ""
+
+msgid "Until date"
+msgstr ""
+
+msgid "Has no assigned package"
+msgstr ""
+
+msgid "Add integration files"
+msgstr ""
+
+msgid "Add integration mods"
+msgstr ""
+
+msgid "Integration files (.zip)"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Source file"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Delete mod"
+msgstr ""
+
+msgid "Enable mod"
+msgstr ""
+
+msgid "Are you sure you want to enable this mod?"
+msgstr ""
+
+msgid "Disable mod"
+msgstr ""
+
+msgid "Are you sure you want to disable this mod?"
+msgstr ""
+
+msgid "Are you sure you want to delete this mod?"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "There are not log files."
+msgstr ""
+
+msgid "Reload"
+msgstr ""
+
+msgid "Empty file"
+msgstr ""
+
+msgid "Empty"
+msgstr ""
+
+msgid "Delete file"
+msgstr ""
+
+msgid "Are you sure you want to delete this file?"
+msgstr ""
+
+msgid "User type accounts"
+msgstr ""
+
+msgid "Company type accounts"
+msgstr ""
+
+msgid "Not there are packages for this type user"
+msgstr ""
+
+msgid "Set package"
+msgstr ""
+
+msgid "Choose package"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "CHOOSE"
+msgstr ""
+
+msgid "BUY NOW"
+msgstr ""
+
+msgid "Assign"
+msgstr ""
+
+msgid "Package assigned"
+msgstr ""
+
+msgid "Are you sure you want to remove this package?"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "The xml mods integration folder is not writable"
+msgstr ""
+
+msgid "The mod file integration has been uploaded correctly"
+msgstr ""
+
+msgid "The zip file is not valid"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
+msgid "There are files repeated"
+msgstr ""
+
+msgid "There was a problem adding the integration mod"
+msgstr ""
+
+msgid "Select a mod."
+msgstr ""
+
+msgid "Mod(s) files(s) have been enabled."
+msgstr ""
+
+msgid "No mod file have been enabled."
+msgstr ""
+
+msgid "Mod(s) files(s) have been disabled."
+msgstr ""
+
+msgid "No mod file have been disabled."
+msgstr ""
+
+msgid "Mod(s) files(s) have been deleted."
+msgstr ""
+
+msgid "No mod file have been deleted."
+msgstr ""
+
+msgid "- The entire cache was deleted"
+msgstr ""
+
+msgid "The cache is empty"
+msgstr ""
+
+msgid "- checked.cache was successfully deleted"
+msgstr ""
+
+msgid "- checked.cache no exists"
+msgstr ""
+
+msgid "- mods.cache was successfully deleted"
+msgstr ""
+
+msgid "- mods.cache no exists"
+msgstr ""
+
+msgid "Select an option"
+msgstr ""
+
+msgid "Are you sure you want to %s the selected mod file?"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "View source"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Item ID"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Show more"
+msgstr ""
+
+msgid "Inactive"
+msgstr ""
+
+msgid "The file could not be deleted."
+msgstr ""
+
+msgid "The file could not be emptied."
+msgstr ""
+
+msgid "URL for 'Choose' button"
+msgstr ""
+
+msgid "Show more tags"
+msgstr ""
+
+msgid "Hide tags"
+msgstr ""
+
+msgid "Listing(s)"
+msgstr ""
+
+msgid "Copy content"
+msgstr ""
+
+msgid "¡Copied!"
+msgstr ""

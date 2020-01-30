@@ -1,0 +1,68 @@
+#show-source-file textarea {
+	height: 400px;
+	width: 100%;
+	background-color: black;
+    color: white;
+    font-family: "DejaVu Sans Mono", "Courier";
+    margin-top: 10px;
+   	margin-left: -7px;
+   	white-space: pre;
+}
+
+#show-source-file a {
+    padding: 3px;
+    border: transparent 1px solid;
+}
+
+#show-source-file a:hover {
+    text-decoration: none;
+    background-color: #ddd;
+    border: #bababe 1px solid;
+    border-radius: 2px;
+    color: #474749;
+}
+
+#copied {
+	display: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.icon-box,
+.icon-box .icon,
+.icon-box .symbols {
+	float: left;
+}
+
+.icon-box .icon {
+	cursor:pointer;
+	margin-left: 20px;
+}
+
+.icon-box {
+	text-align: center;
+}
+
+.icon-box .icon,
+.icon-box .symbols {
+	margin-top: 20px;
+}
+
+.icon-box .symbols {
+	visibility: hidden;
+}
+
+.icon-box:hover .symbols {
+	visibility: visible;
+}
+
+.icon-box .symbols a {
+	color: inherit;
+}
+
+.icon-box .symbols a:hover {
+	text-decoration: none;
+	color: #616161;
+}

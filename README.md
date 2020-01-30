@@ -1,6 +1,10 @@
 # vQmod for Osclass
 An adaptation of OpenCart vQmod for Osclass.
 
+### What is vQmod?
+
+vQmod™ (aka Virtual Quick Mod) is an override system designed to avoid having to change core files. Instead of making changes to the core files directly, the changes are created as xml search/replace script files. These script files are parsed during page load as each "source" core file is loaded with the "include" or "require" php functions. The source is then patched with the script file changes, and saved to a temp file. That temp file is then substituted for the original during execution. The original source file is never altered. This results in a "virtual" change to the core during execution without any actual modification to the core files. Visit the vQmod™ official repository [here](https://github.com/vqmod/vqmod).
+
 ## Installation
 
 1) Download.
@@ -19,20 +23,21 @@ An adaptation of OpenCart vQmod for Osclass.
 
 ## Tips for making mods
 
-a) The mods it's a xml files.
+- The mods it's a xml files.
 
-b) IMPORTANT: To make mods aimed at specifically modifying another Osclass plugin, it is recommended that the name of the xml file SHOULD BE THE SAME NAME AS THE FOLDER of the target plugin. If you uninstall the target plugin, the mod xml will automatically be disabled, and the cache will be purged as well.
+- IMPORTANT: To make mods aimed at specifically modifying another Osclass plugin, it is recommended that the name of the xml file SHOULD BE THE SAME NAME AS THE FOLDER of the target plugin. If you uninstall the target plugin, the mod xml will automatically be disabled, and the cache will be purged as well.
 
-c) The location path of a mod starts from the same folder of the vQmod plugin (oc-content/plugins/vqmod), therefore if you want to apply a mod to another plugin, you should consider pointing to a previous location in the 'file' tag of the xml file, for example:
+- The location path of a mod starts from the same folder of the vQmod plugin (oc-content/plugins/vqmod), therefore if you want to apply a mod to another plugin, you should consider pointing to a previous location in the 'file' tag of the xml file, for example:
 
 my_plugin.xml:
 ```xml
 <file name="../my_plugin/index.php">
 ```
 
-d) If you want to change some other file outside environment plugins should target three times at a previous location, for example:
+- If you want to change some other file outside environment plugins should target three times at a previous location, for example:
 
 custom_mod.xml:
 ```xml
 <file name="../../../oc-admin/ajax/ajax.php">
 ```
+For more informatoin about it, visit the [Wiki](https://github.com/vqmod/vqmod/wiki/Scripting#how-to-make-vqmod-scripts).

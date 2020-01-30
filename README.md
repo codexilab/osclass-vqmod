@@ -23,9 +23,9 @@ vQmod™ (aka Virtual Quick Mod) is an override system designed to avoid having 
 
 ## Tips for making mods
 
-- The mods it's a xml files.
+- The mods it's a .xml files.
 
-- IMPORTANT: To make mods aimed at specifically modifying another Osclass plugin, it is recommended that the name of the xml file SHOULD BE THE SAME NAME AS THE FOLDER of the target plugin. If you uninstall the target plugin, the mod xml will automatically be disabled, and the cache will be purged as well.
+- IMPORTANT - To make mods aimed at specifically modifying another Osclass plugin, it is recommended that the name of the xml file SHOULD BE THE SAME NAME AS THE FOLDER of the target plugin. If you uninstall the target plugin, the mod xml will automatically be disabled, and the cache will be purged as well.
 
 - The location path of a mod starts from the same folder of the vQmod plugin (oc-content/plugins/vqmod), therefore if you want to apply a mod to another plugin, you should consider pointing to a previous location in the 'file' tag of the xml file, for example:
 
@@ -34,10 +34,11 @@ my_plugin.xml:
 <file name="../my_plugin/index.php">
 ```
 
-- If you want to change some other file outside environment plugins should target three times at a previous location, for example:
+- Or if you want to change some other file outside environment plugins should target three times at a previous location, for example:
 
 custom_mod.xml:
 ```xml
 <file name="../../../oc-admin/ajax/ajax.php">
 ```
-For more informatoin about it, visit the [Wiki](https://github.com/vqmod/vqmod/wiki/Scripting#how-to-make-vqmod-scripts).
+For more informatoin about it, visit [How to make vQmod Scripts
+](https://github.com/vqmod/vqmod/wiki/Scripting#how-to-make-vqmod-scripts) and learn some [Examples](https://github.com/vqmod/vqmod/wiki/Examples).

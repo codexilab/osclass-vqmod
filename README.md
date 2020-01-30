@@ -1,5 +1,5 @@
 # vQmod for Osclass
-An adaptation of OpenCart vQmod for Osclass.
+An adaptation inspired in OpenCart vQmod for Osclass.
 
 ### What is vQmod?
 

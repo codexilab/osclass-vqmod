@@ -112,7 +112,7 @@
                     $xml = simplexml_load_file(vqmod_xml_path().$aRow);
                     $modVersion = (isset($xml->version)) ? (string) $xml->version : '';
                     $modTitle = (isset($xml->id)) ? (string) $xml->id : '';
-                    $modTitle = ($modTitle != '') ? $modTitle." ($modVersion)" : $mod;
+                    $modTitle = ($modTitle != '') ? $modTitle." (v$modVersion)" : $mod;
                     $modAuthor = (isset($xml->author)) ? (string) $xml->author : '';
                     
                     

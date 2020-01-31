@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30 09:54+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Adrián Olmedo <adrianolmedo.ve@gmail.com>\n"
+"Last-Translator: Adrian Olmedo <adrianolmedo.ve@gmail.com>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,432 +12,20 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "Language-Team: \n"
 
-msgid "Package"
-msgstr "Paquete"
+msgid "Manage mods"
+msgstr "Gestionar mods"
 
-msgid "Packages"
-msgstr "Paquetes"
+msgid "The file could not be emptied."
+msgstr "El archivo no se pudo vaciar."
 
-msgid "Settings"
-msgstr "Configuración"
-
-msgid "Settings - Packages"
-msgstr "Configuración - Paquetes"
-
-msgid "Integration mods - Packages"
-msgstr "Mods de integración - Paquetes"
-
-msgid "Are you sure you want to %s assigned(s)?"
-msgstr "¿Seguro que quieres %s asignado(s)?"
-
-msgid "Remove package"
-msgstr "Remover paquete"
-
-msgid "Assign package"
-msgstr "Asignar paquete"
-
-msgid "Unassigned"
-msgstr "Sin asignar"
-
-msgid "You cannot activate publications"
-msgstr "No puedes activar publicaciones"
-
-msgid "Your package is defeated"
-msgstr "Tu paquete está caducado"
-
-msgid "You have used all the package that has assigned ¡upgrade!"
-msgstr "Has utilizado todo el paquete que tiene asignado ¡upgrade!"
-
-msgid ""
-"The ID of package can be passed as argument with following tag: {PACKAGE_ID}."
-msgstr ""
-"El ID del paquete se puede pasar como argumento con la siguiente etiqueta: "
-"{PACKAGE_ID}."
-
-msgid "Package Information Profile"
-msgstr "Información del paquete en el Perfil"
-
-msgid "Show only upgrade packages"
-msgstr "Mostrar solo paquetes upgrade"
-
-msgid "Show all packages (include free)"
-msgstr "Mostrar todos los paquetes (incluir los gratuitos)"
-
-msgid "Do not show free packages"
-msgstr "No mostrar paquetes gratuitos"
-
-msgid "Do not show packages"
-msgstr "No mostrar paquetes"
-
-msgid "Show from user menu"
-msgstr "Mostrar desde el menu de usuario"
-
-msgid "Use this script for show manually (if you want)"
-msgstr "Usa este script para mostrar manualmente (si quieres)"
-
-msgid "Go to Integration mods"
-msgstr "Ir a mods de integración"
-
-msgid "Save all changes"
-msgstr "Guardar todos los cambios"
-
-msgid "Manage packages"
-msgstr "Gestionar paquetes"
-
-msgid "Default package for users"
-msgstr "Predeterminado para usuarios"
-
-msgid "Default package for companies"
-msgstr "Predeterminado para compañias"
-
-msgid "Name"
-msgstr "Nombre"
-
-msgid "User type"
-msgstr "Tipo de usuario"
-
-msgid "Free listings"
-msgstr "Anuncios gratuitos"
-
-msgid "Price"
-msgstr "Precio"
-
-msgid "Pay frequency"
-msgstr "Frecuencia de pago"
-
-msgid "Monthly"
-msgstr "Mensual"
-
-msgid "Quarterly"
-msgstr "Trimestral"
-
-msgid "Yearly"
-msgstr "Anual"
-
-msgid "Activate this package"
-msgstr "Activar este paquete"
-
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgid "Update package"
-msgstr "Actualizar paquete"
-
-msgid "Add new package"
-msgstr "Agregar nuevo paquete"
-
-msgid "%d Packages"
-msgstr "%d Paquetes"
-
-msgid "Show filters"
-msgstr "Mostrar filtros"
-
-msgid "Apply"
-msgstr "Aplicar"
-
-msgid "No data available in table"
-msgstr "No hay datos disponibles en la tabla"
-
-msgid "Delete package"
-msgstr "Borrar paquete"
-
-msgid "Are you sure you want to delete this package?"
-msgstr "¿Estás seguro que quiere borrar este paquete?"
-
-msgid "Activate package"
-msgstr "Activar paquete"
-
-msgid "Are you sure you want to activate this package?"
-msgstr "¿Estás seguro que quiere activar este paquete?"
-
-msgid "Activate"
-msgstr "Activar"
-
-msgid "Deactivate package"
-msgstr "Desactivar paquete"
-
-msgid "Are you sure you want to deactivate this package?"
-msgstr "¿Estás seguro que quiere desactivar este paquete?"
-
-msgid "Deactivate"
-msgstr "Desactivar"
-
-msgid "Set default package"
-msgstr "Establecer (default)"
-
-msgid "Are you sure you want to set this package like default?"
-msgstr "¿Está seguro de que desea configurar este paquete como predeterminado?"
-
-msgid "Unset default package"
-msgstr "Deshabilitar (default)"
-
-msgid "Are you sure you want to unset this package like default?"
-msgstr ""
-"¿Estás seguro de que quieres deshabilitar este paquete como predeterminado?"
-
-msgid "Bulk actions"
-msgstr "Acciones masivas"
-
-msgid "Choose an option"
-msgstr "Elija una opción"
-
-msgid "User"
-msgstr "Usuario"
-
-msgid "Company"
-msgstr "Compañía"
-
-msgid "Date"
-msgstr "Fecha"
-
-msgid "Update"
-msgstr "Actualizar"
+msgid "The file could not be deleted."
+msgstr "No se pudo eliminar el archivo."
 
 msgid "Status"
 msgstr "Status"
-
-msgid "ACTIVE"
-msgstr "ACTIVO"
-
-msgid "Active"
-msgstr "Activo "
-
-msgid "DEACTIVE"
-msgstr "DESACTIVADO"
-
-msgid "Order by"
-msgstr "Ordenar por"
-
-msgid "DATE"
-msgstr "FECHA"
-
-msgid "UPDATE DATE"
-msgstr "ACTUALIZAR FECHA"
-
-msgid "Update date"
-msgstr "Actualizar fecha"
-
-msgid "FREE LISTINGS"
-msgstr "ANUNCIOS GRATUITOS"
-
-msgid "PRICE"
-msgstr "PRECIO"
-
-msgid "DESC"
-msgstr "DESC"
-
-msgid "ASC"
-msgstr "ASC"
-
-msgid "Apply filters"
-msgstr "Aplicar filtros"
-
-msgid "Reset filters"
-msgstr "Resetear filtros"
-
-msgid "listings"
-msgstr "listings"
-
-msgid "Free"
-msgstr "Gratuito"
-
-msgid "From date"
-msgstr "Desde"
-
-msgid "Until date"
-msgstr "Hasta"
-
-msgid "Has no assigned package"
-msgstr "No tiene paquete asignado"
-
-msgid "Add integration files"
-msgstr "Agregar archivos de integración"
-
-msgid "Add integration mods"
-msgstr "Agregar mods de integración"
-
-msgid "Integration files (.zip)"
-msgstr "Archivos de integración (.zip)"
-
-msgid "Upload"
-msgstr "Subir"
-
-msgid "Download"
-msgstr "Descargar"
-
-msgid "Source file"
-msgstr "Archivo fuente"
-
-msgid "Close"
-msgstr "Cerrar"
-
-msgid "Save changes"
-msgstr "Guardar cambios"
-
-msgid "Delete mod"
-msgstr "Borrar mod"
-
-msgid "Enable mod"
-msgstr "Habilitar mod"
-
-msgid "Are you sure you want to enable this mod?"
-msgstr "¿Estás seguro que quiere habilitar este mod?"
-
-msgid "Disable mod"
-msgstr "Deshabilitar mod"
-
-msgid "Are you sure you want to disable this mod?"
-msgstr "¿Estás seguro que quiere deshabilitar este mod?"
-
-msgid "Are you sure you want to delete this mod?"
-msgstr "¿Estás seguro que quiere borrar este mod?"
-
-msgid "Back"
-msgstr "Atrás"
-
-msgid "There are not log files."
-msgstr "No hay archivos de registro."
-
-msgid "Reload"
-msgstr "Recargar"
-
-msgid "Empty file"
-msgstr "Vaciar archivo"
-
-msgid "Empty"
-msgstr "Vaciar"
-
-msgid "Delete file"
-msgstr "Borrar archivo"
-
-msgid "Are you sure you want to delete this file?"
-msgstr "¿Estás seguro que quiere borrar este archivo?"
-
-msgid "User type accounts"
-msgstr "Cuentas de tipo Usuario"
-
-msgid "Company type accounts"
-msgstr "Cuentas de tipo Compañia"
-
-msgid "Not there are packages for this type user"
-msgstr "No hay paquetes para este tipo de usuario"
-
-msgid "Set package"
-msgstr "Establecer paquete"
-
-msgid "Choose package"
-msgstr "Elegir paquete"
-
-msgid "Upgrade"
-msgstr "Actualizar"
-
-msgid "Used"
-msgstr "Usado"
-
-msgid "Total"
-msgstr "Total"
-
-msgid "CHOOSE"
-msgstr "ELEGUIR"
-
-msgid "BUY NOW"
-msgstr "COMPRAR AHORA"
-
-msgid "Assign"
-msgstr "Asignar"
-
-msgid "Package assigned"
-msgstr "Paquete asignado"
-
-msgid "Are you sure you want to remove this package?"
-msgstr "¿Estás seguro que quiere remover este paquete?"
-
-msgid "Remove"
-msgstr "Remover"
-
-msgid "The xml mods integration folder is not writable"
-msgstr "La carpeta de integración de mods xml no se puede escribir"
-
-msgid "The mod file integration has been uploaded correctly"
-msgstr "La integración del archivo mod se ha subido correctamente."
-
-msgid "The zip file is not valid"
-msgstr "El archivo zip no es válido"
-
-msgid "No file was uploaded"
-msgstr "Ningún archivo fue subido"
-
-msgid "There are files repeated"
-msgstr "Hay archivos repetidos"
-
-msgid "There was a problem adding the integration mod"
-msgstr "Hubo un problema añadiendo el mod de integración"
-
-msgid "Select a mod."
-msgstr "Seleccionar un mod."
-
-msgid "Mod(s) files(s) have been enabled."
-msgstr "Los archivos mod (s) se han habilitado."
-
-msgid "No mod file have been enabled."
-msgstr "Ningún archivo mod ha sido habilitado."
-
-msgid "Mod(s) files(s) have been disabled."
-msgstr "Los archivos mod(s) han sido deshabilitados."
-
-msgid "No mod file have been disabled."
-msgstr "Ningún archivo mod ha sido deshabilitado."
-
-msgid "Mod(s) files(s) have been deleted."
-msgstr "Los archivos mod (s) se han eliminado."
-
-msgid "No mod file have been deleted."
-msgstr "Ningún archivo mod ha sido eliminado."
-
-msgid "- The entire cache was deleted"
-msgstr "- Se eliminó todo el caché"
-
-msgid "The cache is empty"
-msgstr "El caché esta vacio"
-
-msgid "- checked.cache was successfully deleted"
-msgstr "- checked.cache fue eliminado exitosamente"
-
-msgid "- checked.cache no exists"
-msgstr "- checked.cache no existe"
-
-msgid "- mods.cache was successfully deleted"
-msgstr "- mods.cache fue eliminado exitosamente"
-
-msgid "- mods.cache no exists"
-msgstr "- mods.cache no existe"
-
-msgid "Select an option"
-msgstr "Seleccione una opcion"
-
-msgid "Are you sure you want to %s the selected mod file?"
-msgstr "¿Estás seguro de que quieres %s el archivo mod seleccionado?"
-
-msgid "Enable"
-msgstr "Habilitar"
-
-msgid "Disable"
-msgstr "Deshabilitar"
-
-msgid "Delete"
-msgstr "Borrar"
-
-msgid "View source"
-msgstr "Ver fuente"
-
-msgid "Disabled"
-msgstr "Deshabilitado"
-
-msgid "Enabled"
-msgstr "Habilitado"
 
 msgid "Title"
 msgstr "Título"
@@ -448,35 +36,165 @@ msgstr "Item ID"
 msgid "Author"
 msgstr "Autor"
 
-msgid "Edit"
-msgstr "Editar"
+msgid "View source"
+msgstr "Ver fuente"
 
-msgid "Show more"
-msgstr "Mostrar más"
+msgid "Disable"
+msgstr "Inhabilitar"
 
-msgid "Inactive"
-msgstr "Inactivo"
+msgid "Enable"
+msgstr "Habilitar"
 
-msgid "The file could not be deleted."
-msgstr "El archivo no pudo ser borrado."
+msgid "Delete"
+msgstr "Borrar"
 
-msgid "The file could not be emptied."
-msgstr "El archivo no pudo ser vaciado."
+msgid "Disabled"
+msgstr "Inhabilitado"
 
-msgid "URL for 'Choose' button"
-msgstr "URL del botón de 'Elegir'"
+msgid "Enabled"
+msgstr "Habilitado"
 
-msgid "Show more tags"
-msgstr "Mostrar más etiquetas"
+msgid "The xml mods folder is not writable"
+msgstr "La carpeta de xml de los mods no es escribible"
 
-msgid "Hide tags"
-msgstr "Ocultar etiquetas"
+msgid "The mod file has been uploaded correctly"
+msgstr "El archivo mod se ha subido correctamente"
 
-msgid "Listing(s)"
-msgstr "Anuncio(s)"
+msgid "The zip file is not valid"
+msgstr "El archivo zip no es válido"
+
+msgid "No file was uploaded"
+msgstr "Ningun archivo fue subido"
+
+msgid "There are files repeated"
+msgstr "Hay archivos repetidos"
+
+msgid "There was a problem adding the mod"
+msgstr "Hubo un problema añadiendo el mod"
+
+msgid "Select a mod."
+msgstr "Selecciona un mod."
+
+msgid "Mod(s) files(s) have been enabled."
+msgstr "Archivo(s) mod(s) ha(n) sido habilitado(s)."
+
+msgid "No mod file have been enabled."
+msgstr "No se ha habilitado ningún archivo mod."
+
+msgid "Mod(s) files(s) have been disabled."
+msgstr "Archivo(s) mod(s) ha(n) sido inhabilitado(s)."
+
+msgid "No mod file have been disabled."
+msgstr "Ningún archivo mod ha sido inhabilitado."
+
+msgid "Mod(s) files(s) have been deleted."
+msgstr "Archivo(s) mod(s) se ha(n) eliminado(s)."
+
+msgid "No mod file have been deleted."
+msgstr "No se ha eliminado ningún archivo mod."
+
+#, fuzzy
+msgid "- The entire cache was deleted"
+msgstr "- Se borró todo el caché"
+
+msgid "The cache is empty"
+msgstr "El caché está vacío"
+
+msgid "- checked.cache was successfully deleted"
+msgstr "- check.cache se eliminó correctamente"
+
+msgid "- checked.cache no exists"
+msgstr "- checked.cache ya no existe"
+
+msgid "- mods.cache was successfully deleted"
+msgstr "- mods.cache se eliminó correctamente"
+
+msgid "- mods.cache no exists"
+msgstr "- mods.cache ya no existe"
+
+msgid "Select an option"
+msgstr "Selecciona una opción"
+
+msgid "Bulk actions"
+msgstr "Acciones masivas"
+
+msgid "Are you sure you want to %s the selected mod file?"
+msgstr "¿Está seguro que desea %s el archivo mod seleccionado?"
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "There are not log files."
+msgstr "No hay archivos logs."
+
+msgid "Source file"
+msgstr "Archivo fuente"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Reload"
+msgstr "Recargar"
+
+msgid "Empty file"
+msgstr "Vaciar archivo"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Empty"
+msgstr "Vaciar"
+
+msgid "Delete file"
+msgstr "Borrar archivo"
+
+msgid "Download"
+msgstr "Descargar"
 
 msgid "Copy content"
 msgstr "Copiar contenido"
 
 msgid "¡Copied!"
 msgstr "¡Copiado!"
+
+msgid "Are you sure you want to empty this file?"
+msgstr "¿Está seguro que quiere vaciar este archivo?"
+
+msgid "Are you sure you want to delete this file?"
+msgstr "¿Está seguro que quiere eliminar este archivo?"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "No data available in table"
+msgstr "No hay datos disponibles en la tabla"
+
+msgid "Add mod file"
+msgstr "Añadir archivo mod"
+
+msgid "Mod file (.zip)"
+msgstr "Archivo mod (.zip)"
+
+msgid "Upload"
+msgstr "Subir"
+
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+msgid "Delete mod"
+msgstr "Eliminar mod"
+
+msgid "Enable mod"
+msgstr "Habilitar mod"
+
+msgid "Are you sure you want to enable this mod?"
+msgstr "¿Está seguro que quiere habilitar este mod?"
+
+msgid "Disable mod"
+msgstr "Inhabilitar mod"
+
+msgid "Are you sure you want to disable this mod?"
+msgstr "¿Está seguro que quiere inhabilitar este mod?"
+
+msgid "Are you sure you want to delete this mod?"
+msgstr "¿Está seguro que quiere eliminar este mod?"

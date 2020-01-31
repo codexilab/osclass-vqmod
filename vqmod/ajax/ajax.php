@@ -81,6 +81,6 @@ class CVQModAdminAjax extends AdminSecBaseModel
     //hopefully generic...
     function doView($file)
     {
-        include VQMOD_PATH. 'views/'.$file;
+        include VQMOD_PATH . 'views/'.$file;
     }
 }

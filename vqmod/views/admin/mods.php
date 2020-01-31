@@ -315,7 +315,7 @@ $(document).ready(function () {
         modal: true
     });
 
-	// Check_all Bulk actions
+	// Check all Bulk actions
     $("#check_all").change(function() {
         var isChecked = $(this).prop("checked");
         $('.col-bulkactions input').each( function() {

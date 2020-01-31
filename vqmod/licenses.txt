@@ -1,0 +1,61 @@
+vQmod for Osclass - An adaptation inspired in OpenCart vQmod for Osclass.
+
+Author: Adrian Olmedo <adrianolmedo.ve@gmail.com>
+
+Copyright 2020 CodexiLab
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+vQmod for Osclass includes the following third party components included herein and distributed to you under the respective licenses. A copy of the license text should be in the licenses.txt file of this program:
+
+vQmod™ - Copyright (c) 2010-2019 Qphoria & Jay Gilford. License: GNU Public License.
+
+UGRSR - Copyright Qphoria & Jay Gilford 2011.
+
+
+VQMOD
+
+-----------------------------------------
+vQmod™ - Virtual File Modification System
+-----------------------------------------
+
+ABOUT:
+======
+ * @author Qphoria <qphoria@gmail.com> & Jay Gilford <jay@jaygilford.com>
+ * @copyright (c) 2010-2019
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @site: http://vqmod.com
+
+"vQmod"(TM) (aka Virtual Quick Mod) is a new innovation in php modification override methods.
+Instead of modifying actual files to add custom modifications, source files are parsed
+"on-the-fly" before the php include() or require() is called.
+The source is cloned to a temp file and modifications are made to that temp file, then
+substituted for the real file in the include path.
+
+==========================================================
+See website for additional information, usage, and syntax:
+http://vqmod.com
+==========================================================
+
+
+UGRSR
+
+* @license
+Permission is hereby granted, free of charge, to any person to
+use, copy, modify, distribute, sublicense, and/or sell copies
+of the Software, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+Included in all copies or substantial portions of the Software

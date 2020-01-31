@@ -1,4 +1,24 @@
 <?php
+/*
+ * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+ * @copyright (c) 2020 CodexiLab
+ *
+ * This file is part of vQmod for Osclass.
+ *
+ * vQmod for Osclass is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * vQmod for Osclass is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with vQmod for Osclass.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 /**
  * VQMod Helpers
  * @author CodexiLab
@@ -6,7 +26,6 @@
 
 /**
  * Get installation path vQmod
- * vqmod_path()
  */
 function vqmod_path() {
     return VQMOD_PATH . 'vqmod/';
@@ -14,7 +33,6 @@ function vqmod_path() {
 
 /**
  * Get vQmod's xml file path
- * vqmod_xml_path()
  */
 function vqmod_xml_path() {
     return VQMOD_PATH . 'vqmod/xml/';
@@ -22,7 +40,6 @@ function vqmod_xml_path() {
 
 /**
  * Get the vQmod logs path.
- * vqmod_logs_path()
  */
 function vqmod_logs_path() {
     return VQMOD_PATH . 'vqmod/logs/';
@@ -89,8 +106,8 @@ function formatBytes($bytes, $precision = 1) {
 /**
  * Get file size of a file.
  *
- * @param string $path
- * @param string $fileName
+ * @param string $path Absolute route of file
+ * @param string $fileName Name of file
  */
 function vqmod_get_filesize($path, $fileName) {
     $file = $path.$fileName;
@@ -103,6 +120,8 @@ function vqmod_get_filesize($path, $fileName) {
 
 /**
  * Get a array of mods xml files.
+ *
+ * @param string $path Absolute route of file
  */
 function vqmod_get_mods($path = null) {
     if ($path == null) $path = vqmod_xml_path();
@@ -120,6 +139,8 @@ function vqmod_get_mods($path = null) {
 
 /**
  * Get a array of logs files
+ *
+ * @param string $path Absolute route of file
  */
 function vqmod_get_logs($path = null) {
     if ($path == null) $path = vqmod_logs_path();

@@ -3,7 +3,7 @@ An adaptation inspired in OpenCart vQmod for Osclass.
 
 ### What is vQmod?
 
-vQmod™ (aka Virtual Quick Mod) is an override system designed to avoid having to change core files. Instead of making changes to the core files directly, the changes are created as xml search/replace script files. These script files are parsed during page load as each "source" core file is loaded with the "include" or "require" php functions. The source is then patched with the script file changes, and saved to a temp file. That temp file is then substituted for the original during execution. The original source file is never altered. This results in a "virtual" change to the core during execution without any actual modification to the core files. Visit the vQmod™ official repository [here](https://github.com/vqmod/vqmod).
+vQmod™ (aka Virtual Quick Mod) is an override system designed to avoid having to change core files. Instead of making changes to the core files directly, the changes are created as xml search/replace script files. These script files are parsed during page load as each "source" core file is loaded with the "include" or "require" php functions. The source is then patched with the script file changes, and saved to a temp file. That temp file is then substituted for the original during execution. The original source file is never altered. This results in a "virtual" change to the core during execution without any actual modification to the core files. Visit the [vQmod™ official repository](https://github.com/vqmod/vqmod).
 
 ## Installation
 

@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -247,7 +247,7 @@ class CAdminVQMod extends AdminSecBaseModel
                         $write_notif[] = __("- checked.cache was successfully deleted", 'vqmod');
                     } else {
 
-                        $write_notif[] = __("- checked.cache no exists", 'vqmod');
+                        $write_notif[] = __("- checked.cache already not exists", 'vqmod');
                     }
                 }
 
@@ -261,7 +261,7 @@ class CAdminVQMod extends AdminSecBaseModel
                     if ($deleted) {
                         $write_notif[] = __("- mods.cache was successfully deleted", 'vqmod');
                     } else {
-                        $write_notif[] = __("- mods.cache no exists", 'vqmod');
+                        $write_notif[] = __("- mods.cache already not exists", 'vqmod');
                     }
                 }
 
@@ -279,7 +279,7 @@ class CAdminVQMod extends AdminSecBaseModel
                 $this->_exportVariableToView('numLogs', $numLogs);
 
                 // DataTable
-                require_once VQMOD_PATH . "classes/datatables/ModsDataTable.php";
+                require_once VQMOD_PLUGIN_PATH . "classes/datatables/ModsDataTable.php";
 
                 $modsDataTable = new ModsDataTable();
                 $modsDataTable->table();

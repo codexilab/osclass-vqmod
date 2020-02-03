@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -20,36 +20,79 @@
  */
 
 /**
- * VQMod Helpers
- * @author CodexiLab
+ * Helpers of vQmod for Osclass
  */
 
 /**
- * Get installation path vQmod
+ * Get path of vqmod folder production from the root
  */
 function vqmod_path() {
-    return VQMOD_PATH . 'vqmod/';
+    return osc_base_path() . 'vqmod/';
 }
 
 /**
- * Get vQmod's xml file path
+ * Get vQmod's xml file path of production from the root
  */
 function vqmod_xml_path() {
-    return VQMOD_PATH . 'vqmod/xml/';
+    return osc_base_path() . 'vqmod/xml/';
 }
 
 /**
- * Get the vQmod logs path.
+ * Get the vQmod logs path of production from the root
  */
 function vqmod_logs_path() {
-    return VQMOD_PATH . 'vqmod/logs/';
+    return osc_base_path() . 'vqmod/logs/';
 }
 
 /**
- * Get the vQmod cache path
+ * Get the vQmod cache path of production from the root
  */
 function vqmod_cache_path() {
-    return VQMOD_PATH . 'vqmod/vqcache/';
+    return osc_base_path() . 'vqmod/vqcache/';
+}
+
+/**
+ * Copy a file, or recursively copy a folder and its contents
+ *
+ * @author      Aidan Lister <aidan@php.net>
+ * @link        http://aidanlister.com/repos/v/function.copyr.php
+ * @param       string   $source    Source path
+ * @param       string   $dest      Destination path
+ * @return      bool     Returns TRUE on success, FALSE on failure
+ */
+if (!function_exists('copyr')) {
+    function copyr($source, $dest) {
+        // Check for symlinks
+        if (is_link($source)) {
+            return symlink(readlink($source), $dest);
+        }
+        
+        // Simple copy for a file
+        if (is_file($source)) {
+            return copy($source, $dest);
+        }
+
+        // Make destination directory
+        if (!is_dir($dest)) {
+            mkdir($dest);
+        }
+
+        // Loop through the folder
+        $dir = dir($source);
+        while (false !== $entry = $dir->read()) {
+            // Skip pointers
+            if ($entry == '.' || $entry == '..') {
+                continue;
+            }
+
+            // Deep copy directories
+            copyr("$source/$entry", "$dest/$entry");
+        }
+
+        // Clean up
+        $dir->close();
+        return true;
+    }
 }
 
 /**

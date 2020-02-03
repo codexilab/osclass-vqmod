@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -30,13 +30,13 @@ $vqmodLogsPath = vqmod_logs_path();
 		<?php $i++; ?>
 		<?php $logName = current(explode(".", $log)); ?>
 		<div id="<?php echo $i; ?>" class="icon-box">
-			<div class="icon" onclick="open_source_dialog(<?php echo $i; ?>, '<?php echo $log; ?>');">
-				<img src="<?php echo '../oc-content/plugins/'.VQMOD_FOLDER.'assets/img/log.png'; ?>"><br>
+			<div class="icon" onclick="open_source_dialog(<?php echo $i; ?>, '<?php echo $log; ?>');return false;">
+				<img src="<?php echo '../oc-content/plugins/'.VQMOD_PLUGIN_FOLDER.'assets/img/log.png'; ?>"><br>
 				<?php echo $log; ?><br><span id="<?php echo $i; ?>_info_bytes">(<?php echo vqmod_get_filesize($vqmodLogsPath, $log); ?>)</span>
 			</div>
 			<span class="symbols">
-				<a title="empty" href="javascript:empty_file(<?php echo $i; ?>, '<?php echo $log; ?>')">&#9744;</a><br>
-				<a title="delete" href="javascript:delete_file(<?php echo $i; ?>, '<?php echo $log; ?>')">&#9746;</a><br>
+				<a title="empty" href="#" onclick="empty_file(<?php echo $i; ?>, '<?php echo $log; ?>');return false;">&#9744;</a><br>
+				<a title="delete" href="#" onclick="delete_file(<?php echo $i; ?>, '<?php echo $log; ?>');return false;">&#9746;</a><br>
 				<a title="download" href="<?php echo osc_route_admin_url('vqmod-admin-logs').'&plugin_action=download_vqmod_log&file='.$log.'&'.osc_csrf_token_url(); ?>">&#9047;</a>
 			</span>
 		</div>
@@ -132,11 +132,11 @@ function opensource(grid, file) {
     $('#show-source-file').html('<center>Loading...</center>');
 
     // Menu buttons
-    var empty 		= '<a href="javascript:empty_file('+grid+', \''+file+'\')"><?php echo __("Empty", 'vqmod'); ?></a>';
-    var del 		= '<a href="javascript:delete_file('+grid+', \''+file+'\')"><?php echo __("Delete", 'vqmod'); ?></a>';
+    var empty 		= '<a href="#" onclick="empty_file('+grid+', \''+file+'\');return false;"><?php echo __("Empty", 'vqmod'); ?></a>';
+    var reload      = '<a href="javascript:void(0);" onclick="opensource('+grid+', \''+file+'\')"><?php echo __("Reload", 'vqmod'); ?></a>';
+    var del 		= '<a href="#" onclick="delete_file('+grid+', \''+file+'\');return false;"><?php echo __("Delete", 'vqmod'); ?></a>';
     var download 	= '<a href="<?php echo osc_route_admin_url('vqmod-admin-logs').'&plugin_action=download_vqmod_log&file='; ?>'+file+'&<?php echo osc_csrf_token_url(); ?>"><?php echo __("Download", 'vqmod'); ?></a>';
     var copy 		= '<a href="javascript:void(0);" onclick="copy(\'pre_'+grid+'\')"><?php echo __("Copy content", 'vqmod'); ?></a>';
-    var reload 		= '<a href="javascript:void(0);" onclick="opensource('+grid+', \''+file+'\')"><?php echo __("Reload", 'vqmod'); ?></a>';
     var close 		= '<a href="javascript:void(0);" onclick="$(\'#dialog-source-file\').dialog(\'close\'); $(\'#show-source-file\').html(\'<center>Loading...</center>\');"><?php echo __("Close", 'vqmod'); ?></a>';
     
     // Ajax URL
@@ -147,9 +147,9 @@ function opensource(grid, file) {
         dataType: "html"
     }).done(function(data) {
     	if (data == '') {
-    		$("#show-source-file").html(file+" | "+del+" "+download+" "+reload+" "+close+"<center><?php echo __("Empty file", 'vqmod'); ?>.</center>");
+    		$("#show-source-file").html(file+" | "+del+" "+reload+" "+download+" "+close+"<center><?php echo __("Empty file", 'vqmod'); ?>.</center>");
     	} else {
-    		$("#show-source-file").html(file+" | "+empty+" "+del+" "+download+" "+copy+" "+reload+" "+close+" <span id=\"copied\">· <?php echo __("¡Copied!", 'vqmod'); ?></span><textarea id=\"pre_"+grid+"\" readonly>"+data+"</textarea>");
+    		$("#show-source-file").html(file+" | "+empty+" "+reload+" "+download+" "+copy+" "+del+" "+close+" <span id=\"copied\">· <?php echo __("¡Copied!", 'vqmod'); ?></span><textarea id=\"pre_"+grid+"\" readonly>"+data+"</textarea>");
     	}
         
     });

@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -28,11 +28,11 @@ $rows 		= $aData['aRows'];
 ?>
 <h2 class="render-title">
 	<?php if ($status) : ?>
-		<a href="javascript:vqmod_dialog()" class="btn btn-mini"><?php _e("Disable", 'vqmod'); ?></a> status: on
+		<a href="#" onclick="vqmod_dialog();return false;" class="btn btn-mini"><?php _e("Disable", 'vqmod'); ?></a> status: on
 	<?php else : ?>
-		<a href="javascript:vqmod_dialog()" class="btn btn-mini"><?php _e("Enable", 'vqmod'); ?></a> status: off
+		<a href="#" onclick="vqmod_dialog();return false;" class="btn btn-mini"><?php _e("Enable", 'vqmod'); ?></a> status: off
 	<?php endif; ?>| 
-	<a href="javascript:vqmod_cache_dialog()" class="btn btn-mini">Purge cache</a>
+	<a href="#" onclick="vqmod_cache_dialog();return false;" class="btn btn-mini">Purge cache</a>
 	<a href="<?php echo osc_route_admin_url('vqmod-admin-logs'); ?>" class="btn btn-mini">Logs <?php if ($numLogs > 0) echo "($numLogs)"; ?></a>
 </h2>
 
@@ -89,7 +89,7 @@ $rows 		= $aData['aRows'];
 </div>
 <br><?php $status 	= __get('status'); ?>
 <div class="float-right">
-	<a href="javascript:submit_mod_dialog();"><?php _e("Add mod file", 'vqmod'); ?></a>
+	<a href="#" onclick="submit_mod_dialog();return false;"><?php _e("Add mod file", 'vqmod'); ?></a>
 </div>
 
 <!-- Dialog when it want delete a vqmod file -->
@@ -400,10 +400,10 @@ function opensource(grid, file) {
     var status = (fileFormat == ".xml") ? "<?php echo __("Enabled", 'vqmod'); ?>" : "<?php echo __("Disabled", 'vqmod'); ?>";
     
     // Menu buttons
-    var del         = '<a href="javascript:delete_file(\''+fileName+'\')"><?php echo __("Delete", 'vqmod'); ?></a>';
+    var del         = '<a href="#" onclick="delete_file(\''+fileName+'\');return false;"><?php echo __("Delete", 'vqmod'); ?></a>';
     var copy        = '<a href="javascript:void(0);" onclick="copy(\''+fileName+'\')"><?php echo __("Copy content", 'vqmod'); ?></a>';
-    var enable      = '<a href="javascript:enable_mod_dialog(\''+fileName+'\')"><?php echo __("Enable", 'vqmod'); ?></a>';
-    var disable     = '<a href="javascript:disable_mod_dialog(\''+fileName+'\')"><?php echo __("Disable", 'vqmod'); ?></a>';
+    var enable      = '<a href="#" onclick="enable_mod_dialog(\''+fileName+'\')"><?php echo __("Enable", 'vqmod'); ?></a>';
+    var disable     = '<a href="#" onclick="disable_mod_dialog(\''+fileName+'\')"><?php echo __("Disable", 'vqmod'); ?></a>';
     if (fileFormat == ".xml") {
         var control = disable;
     } else {

@@ -1,7 +1,7 @@
 <?php if ( ! defined('ABS_PATH')) exit('ABS_PATH is not loaded. Direct access is not allowed.');
 
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -87,13 +87,13 @@
                     $modParts = pathinfo(vqmod_xml_path().$aRow);
                     $status = ($modParts['extension'] == 'xml') ? 1 : 0;
 
-                    $options[] = '<a href="javascript:opensource('.$i.', \''.$aRow.'\')">' . __("View source", 'vqmod') . '</a>';
+                    $options[] = '<a href="#" onclick="opensource('.$i.', \''.$aRow.'\');return false;">' . __("View source", 'vqmod') . '</a>';
                     if ($status == 1) {
-                        $options[] = '<a href="javascript:disable_mod_dialog(\''.$mod.'\')">' . __("Disable", 'vqmod') . '</a>';
+                        $options[] = '<a href="#" onclick="disable_mod_dialog(\''.$mod.'\');return false;">' . __("Disable", 'vqmod') . '</a>';
                     } else {
-                        $options[] = '<a href="javascript:enable_mod_dialog(\''.$mod.'\')">' . __("Enable", 'vqmod') . '</a>';
+                        $options[] = '<a href="#" onclick="enable_mod_dialog(\''.$mod.'\');return false;">' . __("Enable", 'vqmod') . '</a>';
                     }
-                    $options[] = '<a href="javascript:delete_file(\''.$mod.'\')">' . __("Delete", 'vqmod') . '</a>';
+                    $options[] = '<a href="#" onclick="delete_file(\''.$mod.'\');return false;">' . __("Delete", 'vqmod') . '</a>';
 
                     $actions = '';
                     if (count($options) > 0) {

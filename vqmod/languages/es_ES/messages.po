@@ -103,13 +103,13 @@ msgstr "El caché está vacío"
 msgid "- checked.cache was successfully deleted"
 msgstr "- check.cache se eliminó correctamente"
 
-msgid "- checked.cache no exists"
+msgid "- checked.cache already not exists"
 msgstr "- checked.cache ya no existe"
 
 msgid "- mods.cache was successfully deleted"
 msgstr "- mods.cache se eliminó correctamente"
 
-msgid "- mods.cache no exists"
+msgid "- mods.cache already not exists"
 msgstr "- mods.cache ya no existe"
 
 msgid "Select an option"

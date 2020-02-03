@@ -101,13 +101,13 @@ msgstr ""
 msgid "- checked.cache was successfully deleted"
 msgstr ""
 
-msgid "- checked.cache no exists"
+msgid "- checked.cache already not exists"
 msgstr ""
 
 msgid "- mods.cache was successfully deleted"
 msgstr ""
 
-msgid "- mods.cache no exists"
+msgid "- mods.cache already not exists"
 msgstr ""
 
 msgid "Select an option"

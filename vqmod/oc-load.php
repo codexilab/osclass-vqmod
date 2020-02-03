@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -20,15 +20,15 @@
  */
  
 // Helpers
-require_once VQMOD_PATH . "helpers/hUtils.php";
+require_once VQMOD_PLUGIN_PATH . "helpers/hUtils.php";
 
 // Controllers
-require_once VQMOD_PATH . "controller/admin/mods.php";
-require_once VQMOD_PATH . "controller/admin/logs.php";
+require_once VQMOD_PLUGIN_PATH . "controller/admin/mods.php";
+require_once VQMOD_PLUGIN_PATH . "controller/admin/logs.php";
 
 // Ajax
-require_once VQMOD_PATH . "ajax/ajax.php";
+require_once VQMOD_PLUGIN_PATH . "ajax/ajax.php";
 
 // Classes
-require_once VQMOD_PATH . "classes/UGRSR.php";
-require_once VQMOD_PATH . "classes/VQModManager.php";
+require_once VQMOD_PLUGIN_PATH . "classes/UGRSR.php";
+require_once VQMOD_PLUGIN_PATH . "classes/VQModManager.php";

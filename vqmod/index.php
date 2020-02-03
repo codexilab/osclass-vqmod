@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -23,7 +23,7 @@
 Plugin Name: vQmod™ for Osclass
 Plugin URI: https://github.com/codexilab/osclass-vqmod
 Description: vQmod™ (aka Virtual Quick Mod) is a new innovation in php modification override methods.
-Version: 1.0.0
+Version: 1.2.0
 Author: CodexiLab
 Author URI: https://github.com/codexilab
 Short Name: vqmod
@@ -31,23 +31,24 @@ Plugin update URI: https://github.com/codexilab/osclass-vqmod
 */
 
 	// Paths
-	define('VQMOD_FOLDER', 'vqmod/');
-	define('VQMOD_PATH', osc_plugins_path().VQMOD_FOLDER);
+	define('VQMOD_PLUGIN_FOLDER', 'vqmod/');
+	define('VQMOD_PLUGIN_PATH', osc_plugins_path().VQMOD_PLUGIN_FOLDER);
 
 	
 	// Prepare model, controllers and helpers
-	require_once VQMOD_PATH . "oc-load.php";
+	require_once VQMOD_PLUGIN_PATH . "oc-load.php";
 
 	
 	// URL routes
-	osc_add_route('vqmod-admin-mods', VQMOD_FOLDER.'admin/mods', VQMOD_FOLDER.'admin/mods', VQMOD_FOLDER.'views/admin/mods.php');
-	osc_add_route('vqmod-admin-logs', VQMOD_FOLDER.'admin/logs', VQMOD_FOLDER.'admin/logs', VQMOD_FOLDER.'views/admin/logs.php');
+	osc_add_route('vqmod-admin-mods', VQMOD_PLUGIN_FOLDER.'admin/mods', VQMOD_PLUGIN_FOLDER.'admin/mods', VQMOD_PLUGIN_FOLDER.'views/admin/mods.php');
+	osc_add_route('vqmod-admin-logs', VQMOD_PLUGIN_FOLDER.'admin/logs', VQMOD_PLUGIN_FOLDER.'admin/logs', VQMOD_PLUGIN_FOLDER.'views/admin/logs.php');
 
 	
 	// Headers in the admin panel
 	osc_add_hook('admin_menu_init', function() {
+		$VQMod_status = (VQModManager::newInstance()->status()) ? "on" : "off";
 	    osc_add_admin_submenu_divider(
-	        "plugins", __("vQmod", 'vqmod'), "vqmod", "administrator"
+	        "plugins", __("vQmod ($VQMod_status)", 'vqmod'), "vqmod", "administrator"
 	    );
 
 	    osc_add_admin_submenu_page(
@@ -100,7 +101,7 @@ Plugin update URI: https://github.com/codexilab/osclass-vqmod
 	// Add custom CSS Styles in oc-admin
 	function vqmod_custom_css_admin() {
 		if (Params::getParam('route') == "vqmod-admin-mods" || Params::getParam('route') == "vqmod-admin-logs") {
-			osc_enqueue_style('fileManager', osc_base_url() . 'oc-content/plugins/' . VQMOD_FOLDER . 'assets/css/admin/filemanager.css');
+			osc_enqueue_style('fileManager', osc_base_url() . 'oc-content/plugins/' . VQMOD_PLUGIN_FOLDER . 'assets/css/admin/filemanager.css');
 		}
 	}
 	osc_add_hook('init_admin', 'vqmod_custom_css_admin');
@@ -122,17 +123,17 @@ Plugin update URI: https://github.com/codexilab/osclass-vqmod
      * 
 	 * - a) Disable mod at time that disable other plugin with the same name
 	 * - b) Purge cache
-	 * - c) Uninstall vQmod from Osclass plugin system by disabling this plugin
+	 * - c) Disable vQmod if the plugin that is being deactivate is the same as this
 	 *
 	 * @param string $path e.g. my_plugin/index.php
 	 */
-    function before_uninstall_vqmod($path = null) {
+    function before_vqmod_deactivate($path = null) {
     	// a) Disable mod
     	if ($path != null) {
     		$xmlModPath = vqmod_xml_path();
     		$mod = current(explode("/", $path)); 	// e.g. my_plugin
-	    	$mod = $xmlModPath.$mod; 				// e.g. var/www/html/osclass/oc-content/plugins/packages/vqmod/xml/my_plugin
-	        if (file_exists($mod.'.xml') && !is_dir($mod.'.xml') && $mod.'.xml' != $xmlModPath.'index.xml' && $mod.'.xml' != $xmlModPath.current(explode("/", VQMOD_FOLDER)).'.xml' && !file_exists($mod.'.xml.disabled')) {
+	    	$mod = $xmlModPath.$mod; 				// e.g. var/www/html/osclass/vqmod/vqmod/xml/my_plugin
+	        if (file_exists($mod.'.xml') && !is_dir($mod.'.xml') && $mod.'.xml' != $xmlModPath.'index.xml' && $mod.'.xml' != $xmlModPath.current(explode("/", VQMOD_PLUGIN_FOLDER)).'.xml' && !file_exists($mod.'.xml.disabled')) {
 	            @rename($mod.'.xml', $mod.'.xml.disabled');
 	        	VQModManager::newInstance()->purgeCache();
 	        }
@@ -141,12 +142,26 @@ Plugin update URI: https://github.com/codexilab/osclass-vqmod
         // b) Purge cache
     	VQModManager::newInstance()->purgeCache();
 
-    	// c) Uninstall vQmod if the plugin that being deactivate is the same
-    	if ($path == VQMOD_FOLDER.'index.php') {
+    	// c) Uninstall vQmod if the plugin that is being deactivate is the same as this
+    	if ($path == VQMOD_PLUGIN_FOLDER.'index.php') {
     		osc_add_flash_info_message(VQModManager::newInstance()->uninstall(), 'admin');
     	}
     }
-    osc_add_hook('before_plugin_deactivate', 'before_uninstall_vqmod');
+    osc_add_hook('before_plugin_deactivate', 'before_vqmod_deactivate');
+
+
+    /**
+     * When vQmod for Osclass is being unistalled: delete vqmod folder from the root
+	 * @param string $path e.g. vqmod/index.php
+	 */
+    function before_vqmod_uninstall($path = null) {
+    	if ($path == VQMOD_PLUGIN_FOLDER.'index.php') {
+			if (!osc_deleteDir(vqmod_path())) {
+				osc_add_flash_error_message(__("vqmod/ folder could not be removed from the root", 'vqmod'), 'admin');
+			}
+    	}
+    }
+    osc_add_hook('before_plugin_uninstall', 'before_vqmod_uninstall');
 
 
 	// Uninstallation process
@@ -159,7 +174,7 @@ Plugin update URI: https://github.com/codexilab/osclass-vqmod
 
 	// Installation process
 	function vqmod_install() {
-		osc_set_preference('version', '1.0.0', 'vqmod', 'STRING');
+		osc_set_preference('version', '1.2.0', 'vqmod', 'STRING');
 	}
 	// Register plugin's installation
 	osc_register_plugin(osc_plugin_path(__FILE__), 'vqmod_install');

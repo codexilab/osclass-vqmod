@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -27,9 +27,6 @@ class VQModManager
 	
 	private static $instance;
 
-    public static $path;
-    public static $admin_path;
-
     /**
      * Singleton Pattern
      * 
@@ -42,14 +39,6 @@ class VQModManager
 		}
 		return self::$instance;
 	}
-	
-	function __construct() {
-        // Get directory two above installation directory (e. g.: /var/www/html/osclass/)
-        self::$path = realpath(dirname(__FILE__) . '/../../../../') . '/';
-
-        // CHANGE THIS IF YOU EDIT YOUR ADMIN FOLDER NAME
-        self::$admin_path = 'oc-admin';
-    }
 
     /**
      * VQModManager::newInstance()->status();
@@ -60,8 +49,8 @@ class VQModManager
     public function status()
     {
         $filesContent = array(
-            file_get_contents(self::$path . 'index.php'),
-            file_get_contents(self::$path . self::$admin_path . '/index.php')
+            file_get_contents(osc_base_path() . 'index.php'),
+            file_get_contents(osc_admin_base_path() . 'index.php')
         );
 
         $started = 0;
@@ -70,7 +59,7 @@ class VQModManager
         foreach ($filesContent as $fileContent) {
 
             preg_match('~//VirtualQMOD 
-    \$vqmod = ABS_PATH . \'oc-content/plugins/vqmod/classes/VQMod.php\'; 
+    \$vqmod = ABS_PATH . \'vqmod/vqmod.php\'; 
     if \(isset\(\$vqmod\) && file_exists\(\$vqmod\)\) require_once\(\$vqmod\); if \(class_exists\(\"VQMod"\)\) VQMod::bootup\(\);~', $fileContent, $VQMod_started);
 
             if ($VQMod_started) {
@@ -85,7 +74,12 @@ class VQModManager
         
         }
 
-        if ($started == 2 && $installed == 2) return true;
+        // Check if exist vqmod folder in the root
+        if (file_exists(vqmod_path()) && is_dir(vqmod_path()))
+            // Check that the affected files are correctly modified
+            if ($started == 2 && $installed == 2) return true;
+
+        // If none of the two previous cases occur
         return false;
     }
 
@@ -129,56 +123,64 @@ class VQModManager
 
 	public function install()
     {
+        // Counter errors of initialitation
+        $write_errors = array();
+
         // Preparing the environment
-        $VQModPath = VQMOD_PATH . 'vqmod/';
-        if(!is_writeable($VQModPath)) {
+        $VQModPath = VQMOD_PLUGIN_PATH . 'vqmod/';
+        if (!is_writeable($VQModPath)) {
             chmod($VQModPath, 0777);
         }
-        if(!is_writeable($VQModPath)) {
+        if (!is_writeable($VQModPath)) {
             $write_errors[] = $VQModPath.' could not change to writable';
         }
 
-        // Counters
-        $write_errors = array();
-        $changes = 0;
-        $writes = 0;
-        $i = 0;
-
-        // Verify path is correct
-        if(empty(self::$path)) return('ERROR - COULD NOT DETERMINE CENTRAL PATH CORRECTLY - ' . dirname(__FILE__));
-
-        if ($this->status()) {
-            return 'VQMOD ALREADY INSTALLED!';
-        }
-
-        // Get original permissions of index files
-        $mainIndexPerms = substr(sprintf('%o', fileperms(self::$path . 'index.php')), -4);
-        $adminIndexPerms = substr(sprintf('%o', fileperms(self::$path . self::$admin_path . '/index.php')), -4);
-
-        if(!is_writeable(self::$path . 'index.php')) @chmod(self::$path . 'index.php', 0777);
-        if(!is_writeable(self::$path . self::$admin_path . '/index.php')) @chmod(self::$path . self::$admin_path . '/index.php', 0777);
-
-        
-        if(!is_writeable(self::$path . 'index.php')) {
-            $write_errors[] = 'index.php not writeable in ' . self::$path;
-        }
-        if(!is_writeable(self::$path . self::$admin_path . '/index.php')) {
-            $write_errors[] = 'index.php not writeable in ' . self::$admin_path;
+        // Copy entire the original and clean vqmod folder to the root
+        if (!copyr($VQModPath, vqmod_path())) {
+            $write_errors[] = $VQModPath.' could not be copied to the root';
         }
 
         if(!empty($write_errors)) {
             return(implode('<br />', $write_errors));
         }
 
+
+        // Verify path is correct
+        if(empty(osc_base_path())) return('ERROR - COULD NOT DETERMINE CENTRAL PATH CORRECTLY - ' . dirname(__FILE__));
+
+        if ($this->status()) {
+            return 'VQMOD ALREADY INSTALLED!';
+        }
+
+        // Get original permissions of index files
+        $mainIndexPerms = substr(sprintf('%o', fileperms(osc_base_path() . 'index.php')), -4);
+        $adminIndexPerms = substr(sprintf('%o', fileperms(osc_admin_base_path() . 'index.php')), -4);
+
+        if(!is_writeable(osc_base_path() . 'index.php')) @chmod(osc_base_path() . 'index.php', 0777);
+        if(!is_writeable(osc_admin_base_path() . 'index.php')) @chmod(osc_admin_base_path() . 'index.php', 0777);
+
+        
+        if(!is_writeable(osc_base_path() . 'index.php')) {
+            return 'index.php is not writable in ' . osc_base_path();
+        }
+        if(!is_writeable(osc_admin_base_path() . 'index.php')) {
+            return 'index.php is not writable in ' . osc_admin_base_path();
+        }
+
+
+        $changes = 0;
+        $writes = 0;
+        $i = 0;
+
         // Create new UGRSR class
-        $u = new UGRSR(self::$path);
+        $u = new UGRSR(osc_base_path());
 
         // Set file searching to off
         $u->file_search = false;
 
         /*** START ITERATION 1 ***/
         $u->addFile('index.php');
-        $u->addFile(self::$admin_path . '/index.php');
+        $u->addFile(basename(osc_admin_base_path()) . '/index.php');
 
         // Pattern to add vqmod include
         $pattern_array = array();
@@ -195,6 +197,7 @@ class VQModManager
         $i++; $i++; // Add one more because in this iteration there are two files that are being modified
         /***** END ITERATION *****/
 
+
         /*** START ITERATION 2 ***/
         $u->clearPatterns();
         $u->resetFileList();
@@ -209,7 +212,7 @@ class VQModManager
     }
 
     //VirtualQMOD 
-    $vqmod = ABS_PATH . \'oc-content/plugins/vqmod/classes/VQMod.php\'; 
+    $vqmod = ABS_PATH . \'vqmod/vqmod.php\'; 
     if (isset($vqmod) && file_exists($vqmod)) require_once($vqmod); if (class_exists("VQMod")) VQMod::bootup();';
 
         $u->addPattern($pattern_array['pattern'], $pattern_array['replace']);
@@ -220,12 +223,13 @@ class VQModManager
         $i++;
         /***** END ITERATION *****/
 
+
         /*** START ITERATION 3 ***/
         $u->clearPatterns();
         $u->resetFileList();
 
         // Add catalog index files to files to include
-        $u->addFile(self::$admin_path . '/index.php');
+        $u->addFile(basename(osc_admin_base_path()) . '/index.php');
 
         // Pattern to add vqmod include
         $pattern_array['pattern'] = '~define\(\'OC_ADMIN\', true\);~';
@@ -233,7 +237,7 @@ class VQModManager
         $pattern_array['replace'] = 'define(\'OC_ADMIN\', true);
 
     //VirtualQMOD 
-    $vqmod = ABS_PATH . \'oc-content/plugins/vqmod/classes/VQMod.php\'; 
+    $vqmod = ABS_PATH . \'vqmod/vqmod.php\'; 
     if (isset($vqmod) && file_exists($vqmod)) require_once($vqmod); if (class_exists("VQMod")) VQMod::bootup();';
 
         $u->addPattern($pattern_array['pattern'], $pattern_array['replace']);
@@ -245,46 +249,47 @@ class VQModManager
         /***** END ITERATION *****/
 
         // Restore original permissions of index files
-        @chmod(self::$path . 'index.php', $mainIndexPerms);
-        @chmod(self::$admin_path . '/index.php', $adminIndexPerms);
+        @chmod(osc_base_path() . 'index.php', $mainIndexPerms);
+        @chmod(osc_admin_base_path() . 'index.php', $adminIndexPerms);
 
         // Output result to user
         if(!$changes) return('VQMOD ALREADY INSTALLED!');
-        if($writes != $i) return('ONE OR MORE FILES COULD NOT BE WRITTEN IN '. self::$path);
+        if($writes != $i) return('ONE OR MORE FILES COULD NOT BE WRITTEN IN '. osc_base_path() . ' OR '. osc_admin_base_path());
         return('VQMOD HAS BEEN INSTALLED ON YOUR SYSTEM!');
     }
 
     public function uninstall()
     {
+        // Verify path is correct
+        if(empty(osc_base_path())) return('ERROR - COULD NOT DETERMINE CENTRAL PATH CORRECTLY - ' . dirname(__FILE__));
+
+        /* Remove vqmod folder from root
+        if (!osc_deleteDir(vqmod_path())) {
+            $write_errors[] = 'vqmod/ folder could not be removed from the root: ' . osc_base_path();
+        }*/
+
+        // Get original permissions of index files
+        $mainIndexPerms = substr(sprintf('%o', fileperms(osc_base_path() . 'index.php')), -4);
+        $adminIndexPerms = substr(sprintf('%o', fileperms(osc_base_path() . 'index.php')), -4);
+
+        if(!is_writeable(osc_base_path() . 'index.php')) @chmod(osc_base_path(). 'index.php', 0777);
+        if(!is_writeable(osc_admin_base_path() . 'index.php')) @chmod(osc_admin_base_path() . 'index.php', 0777);
+
+        if(!is_writeable(osc_base_path() . 'index.php')) {
+            return 'index.php is not writable in ' . osc_base_path();
+        }
+        if(!is_writeable(osc_admin_base_path() . 'index.php')) {
+            return 'index.php is not writable in ' . osc_admin_base_path();
+        }
+
+
         // Counters
-        $write_errors = array();
         $changes = 0;
         $writes = 0;
         $i = 0;
 
-        // Verify path is correct
-        if(empty(self::$path)) return('ERROR - COULD NOT DETERMINE CENTRAL PATH CORRECTLY - ' . dirname(__FILE__));
-
-        // Get original permissions of index files
-        $mainIndexPerms = substr(sprintf('%o', fileperms(self::$path . 'index.php')), -4);
-        $adminIndexPerms = substr(sprintf('%o', fileperms(self::$path . self::$admin_path . '/index.php')), -4);
-
-        if(!is_writeable(self::$path . 'index.php')) @chmod(self::$path . 'index.php', 0777);
-        if(!is_writeable(self::$path . self::$admin_path . '/index.php')) @chmod(self::$path . self::$admin_path . '/index.php', 0777);
-
-        if(!is_writeable(self::$path . 'index.php')) {
-            $write_errors[] = 'index.php not writeable in ' . self::$path;
-        }
-        if(!is_writeable(self::$path . self::$admin_path . '/index.php')) {
-            $write_errors[] = 'index.php not writeable in ' . self::$admin_path;
-        }
-
-        if(!empty($write_errors)) {
-            return(implode('<br />', $write_errors));
-        }
-
         // Create new UGRSR class
-        $u = new UGRSR(self::$path);
+        $u = new UGRSR(osc_base_path());
 
         // Set file searching to off
         $u->file_search = false;
@@ -300,7 +305,7 @@ class VQModManager
     }
 
     //VirtualQMOD 
-    \$vqmod = ABS_PATH . \'oc-content/plugins/vqmod/classes/VQMod.php\'; 
+    \$vqmod = ABS_PATH . \'vqmod/vqmod.php\'; 
     if \(isset\(\$vqmod\) && file_exists\(\$vqmod\)\) require_once\(\$vqmod\); if \(class_exists\(\"VQMod"\)\) VQMod::bootup\(\);~';
 
         $pattern_array['replace'] = 'define(\'CLI\', true);
@@ -314,17 +319,18 @@ class VQModManager
         $i++;
         /***** END ITERATION *****/
 
+
         /*** START ITERATION 2 ***/
         $u->clearPatterns();
         $u->resetFileList();
 
         // Add catalog index files to files to include
-        $u->addFile(self::$admin_path . '/index.php');
+        $u->addFile(basename(osc_admin_base_path()) . '/index.php');
 
         $pattern_array['pattern'] = '~define\(\'OC_ADMIN\', true\);
 
     //VirtualQMOD 
-    \$vqmod = ABS_PATH . \'oc-content/plugins/vqmod/classes/VQMod.php\'; 
+    \$vqmod = ABS_PATH . \'vqmod/vqmod.php\'; 
     if \(isset\(\$vqmod\) && file_exists\(\$vqmod\)\) require_once\(\$vqmod\); if \(class_exists\(\"VQMod"\)\) VQMod::bootup\(\);~';
 
         $pattern_array['replace'] = 'define(\'OC_ADMIN\', true);';
@@ -337,12 +343,13 @@ class VQModManager
         $i++;
         /***** END ITERATION *****/
 
+
         /*** START ITERATION 4 ***/
         $u->clearPatterns();
         $u->resetFileList();
 
         $u->addFile('index.php');
-        $u->addFile(self::$admin_path . '/index.php');
+        $u->addFile(basename(osc_admin_base_path()) . '/index.php');
 
         // Pattern to run required files through vqmod
         $pattern_array['pattern'] = '~if \(isset\(\$vqmod\) && file_exists\(\$vqmod\) && class_exists\(\"VQMod"\)\) : require_once\(VQMod::modCheck\(([^";]+)\)\); else : require_once([^";]+); endif;~';
@@ -358,12 +365,12 @@ class VQModManager
         /***** END ITERATION *****/
 
         // Restore original permissions of index files
-        @chmod(self::$path . 'index.php', $mainIndexPerms);
-        @chmod(self::$admin_path . '/index.php', $adminIndexPerms);
+        @chmod(osc_base_path() . 'index.php', $mainIndexPerms);
+        @chmod(osc_admin_base_path() . 'index.php', $adminIndexPerms);
 
         // Output result to user
         if(!$changes) return('VQMOD ALREADY UNINSTALLED!');
-        if($writes != $i) return('ONE OR MORE FILES COULD NOT BE WRITTEN IN '. self::$path);
+        if($writes != $i) return('ONE OR MORE FILES COULD NOT BE WRITTEN IN '. osc_base_path() . ' OR ' . osc_admin_base_path());
         return('VQMOD HAS BEEN UNINSTALLED ON YOUR SYSTEM!');
     }
 }

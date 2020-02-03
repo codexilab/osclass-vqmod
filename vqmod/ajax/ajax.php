@@ -1,6 +1,6 @@
 <?php
-/*
- * @author Adrian Olmedo <adrianolmedo.ve@gmail.com>
+/**
+ * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
  *
  * This file is part of vQmod for Osclass.
@@ -81,6 +81,6 @@ class CVQModAdminAjax extends AdminSecBaseModel
     //hopefully generic...
     function doView($file)
     {
-        include VQMOD_PATH . 'views/'.$file;
+        include VQMOD_PLUGIN_PATH . 'views/'.$file;
     }
 }

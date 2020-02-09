@@ -23,5 +23,7 @@ vQmod™ (aka Virtual Quick Mod) is an override system designed to avoid having 
 
 ## vQmod scripts Wiki
 
+* IMPORTANT - To make mods aimed at specifically modifying another Osclass plugin, it is recommended that the name of the xml file SHOULD BE THE SAME NAME AS THE FOLDER of the target plugin. If you uninstall the target plugin, the mod xml will automatically be disabled, and the cache will be purged as well.
+
 For more information about it, visit [How to make vQmod Scripts
 ](https://github.com/vqmod/vqmod/wiki/Scripting#how-to-make-vqmod-scripts) and learn some [Examples](https://github.com/vqmod/vqmod/wiki/Examples).

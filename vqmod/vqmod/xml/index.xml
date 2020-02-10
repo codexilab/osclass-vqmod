@@ -5,19 +5,19 @@
     <vqmver required="true">2.6.0</vqmver>
     <author>CodexiLab</author>
     <file name="oc-load.php,oc-includes/osclass/classes/Plugins.php">
-    	<operation info="For non OCMod includes/requires">
+    	<operation error="skip" info="For non OCMod includes/requires">
     		<search position="replace" regex="true"><![CDATA[~^(\s*)(require|include|@include)(_once)?(\s+|\()(?!VQMod::modCheck\()(?!modification\()([^);]+)~]]></search>
     		<add><![CDATA[$1$2$3$4VQMod::modCheck($5)]]></add>
     	</operation>
 	</file>
 	<file name="oc-includes/osclass/helpers/hDefines.php">
-    	<operation info="For non OCMod includes/requires">
+    	<operation error="skip" info="For non OCMod includes/requires">
     		<search position="replace" regex="true"><![CDATA[~^(\s*)(require|include|@include)(_once)?(\s+|\()(?!VQMod::modCheck\()(?!modification\()([^;]+)~]]></search>
     		<add><![CDATA[$1$2$3$4VQMod::modCheck($5)]]></add>
     	</operation>
 	</file>
 	<file name="oc-includes/osclass/classes/Plugins.php">
-		<operation info="Upgrade Plugins System">
+		<operation error="skip" info="Upgrade Plugins System">
 			<search position="replace" regex="true"><![CDATA[/(?:'before_plugin_uninstall')|(?:(?:\"before_plugin_uninstall\"))/]]></search>
 			<add><![CDATA['before_plugin_uninstall', $path]]></add>
 		</operation>

@@ -17,21 +17,9 @@
     	</operation>
 	</file>
 	<file name="oc-includes/osclass/classes/Plugins.php">
-		<operation error="skip" info="Upgrade Plugins System for Osclass 3.9.0">
-			<search position="replace"><![CDATA[osc_run_hook( 'before_plugin_uninstall' );]]></search>
-			<add><![CDATA[osc_run_hook( 'before_plugin_uninstall', $path );]]></add>
-		</operation>
-		<operation error="skip" info="Upgrade Plugins System for Osclass 3.8.x, 3.7.x, 3.6.x">
-			<search position="replace"><![CDATA[osc_run_hook("before_plugin_uninstall");]]></search>
-			<add><![CDATA[osc_run_hook("before_plugin_uninstall", $path);]]></add>
-		</operation>
-		<operation error="skip" info="Upgrade Plugins System for Osclass 3.9.0">
-			<search position="replace"><![CDATA[osc_run_hook( 'before_plugin_deactivate' );]]></search>
-			<add><![CDATA[osc_run_hook( 'before_plugin_deactivate', $path );]]></add>
-		</operation>
-		<operation error="skip" info="Upgrade Plugins System for Osclass 3.8.x, 3.7.x, 3.6.x">
-			<search position="replace"><![CDATA[osc_run_hook("before_plugin_deactivate");]]></search>
-			<add><![CDATA[osc_run_hook("before_plugin_deactivate", $path);]]></add>
+		<operation info="Upgrade Plugins System">
+			<search position="replace" regex="true"><![CDATA[/(?:'before_plugin_uninstall')|(?:(?:\"before_plugin_uninstall\"))/]]></search>
+			<add><![CDATA['before_plugin_uninstall', $path]]></add>
 		</operation>
 	</file>
 </modification>

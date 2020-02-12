@@ -4,7 +4,7 @@ vQmod for Osclass 1.2.1 2020-02-12
 - vqmod/vqmod.php returned to original code
 - Added minimum new details
 
-vQmod for Osclass 1.2 2019-02-03
+vQmod for Osclass 1.2 2020-02-03
 ----------------------
 - vqmod folder is relocated to the root
 - Installation/uninstallation vQmod is more robust
@@ -12,6 +12,6 @@ vQmod for Osclass 1.2 2019-02-03
 - Fixed issue with button links that redirect to blank page
 - Fixed other small issues
 
-vQmod for Osclass 1.0 2019-01-31
+vQmod for Osclass 1.0 2020-01-31
 -------------------------
 - Experimental version

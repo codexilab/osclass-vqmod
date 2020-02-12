@@ -1,3 +1,9 @@
+vQmod for Osclass 1.2.1 2020-02-12
+----------------------
+- hDefines support vqmod in index.xml (to management template files) thanks to morteza (https://github.com/mngzir)
+- vqmod/vqmod.php returned to original code
+- Added minimum new details
+
 vQmod for Osclass 1.2 2019-02-03
 ----------------------
 - vqmod folder is relocated to the root

@@ -149,15 +149,8 @@ abstract class VQMod {
 			}
 		} else {
 			file_put_contents(self::path(self::$checkedCache, true), $stripped_filename . PHP_EOL, FILE_APPEND | LOCK_EX);
-			
-			// Remove duplicate lines (Added by: Adrián Olmedo | 11-06-19)
-			$lines = file(self::path(self::$checkedCache, true));
-			$lines = array_unique($lines);
-			file_put_contents(self::path(self::$checkedCache, true), implode($lines));
-
 			self::$_doNotMod[] = $sourcePath;
 		}
-
 
 		self::$_filesModded[$sourcePath] = array('cached' => $changed);
 		return $changed ? $writePath : $sourcePath;

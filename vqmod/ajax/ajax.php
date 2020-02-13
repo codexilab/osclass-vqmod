@@ -1,4 +1,5 @@
-<?php
+<?php if ( ! defined('ABS_PATH')) exit('ABS_PATH is not loaded. Direct access is not allowed.');
+
 /**
  * @author Adrián Olmedo <adrianolmedo.ve@gmail.com>
  * @copyright (c) 2020 CodexiLab
@@ -18,8 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with vQmod for Osclass.  If not, see <https://www.gnu.org/licenses/>.
  */
- 
-define('IS_AJAX', true);
 
 class CVQModAdminAjax extends AdminSecBaseModel
 {

@@ -23,7 +23,7 @@
 Plugin Name: vQmod™ for Osclass
 Plugin URI: https://github.com/codexilab/osclass-vqmod
 Description: vQmod™ (aka Virtual Quick Mod) is a new innovation in php modification override methods.
-Version: 1.2.0
+Version: 1.2.1
 Author: CodexiLab
 Author URI: https://github.com/codexilab
 Short Name: vqmod
@@ -174,7 +174,7 @@ Plugin update URI: https://github.com/codexilab/osclass-vqmod
 
 	// Installation process
 	function vqmod_install() {
-		osc_set_preference('version', '1.2.0', 'vqmod', 'STRING');
+		osc_set_preference('version', '1.2.1', 'vqmod', 'STRING');
 	}
 	// Register plugin's installation
 	osc_register_plugin(osc_plugin_path(__FILE__), 'vqmod_install');

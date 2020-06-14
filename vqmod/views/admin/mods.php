@@ -23,6 +23,8 @@
 $status     = __get('status');
 $numLogs    = __get('numLogs');
 
+$sort       = Params::getParam('sort');
+
 $aData 	    = __get('aData');
 $columns    = $aData['aColumns'];
 $rows 		= $aData['aRows'];

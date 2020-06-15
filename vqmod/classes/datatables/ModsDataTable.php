@@ -103,7 +103,6 @@
                         foreach( $options as $actual ) {
                             $auxOptions .= '<li>'.$actual.'</li>'.PHP_EOL;
                         }
-                        $auxOptions  .= $moreOptions;
                         $auxOptions  .= '</ul>'.PHP_EOL;
 
                         $actions = '<div class="actions">'.$auxOptions.'</div>'.PHP_EOL;

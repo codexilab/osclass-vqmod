@@ -1,3 +1,7 @@
+vQmod for Osclass 1.2.2 2020-06-15
+----------------------
+- Bux fixes
+
 vQmod for Osclass 1.2.1 2020-02-12
 ----------------------
 - hDefines support vqmod in index.xml (to management template files) thanks to morteza (https://github.com/mngzir)
